@@ -6,8 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import id.petersam.forecast.data.WeatherApiService
 
 import id.petersam.forecast.R
+import kotlinx.android.synthetic.main.current_weather_fragment.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CurrentWeatherFragment : Fragment() {
 
@@ -28,6 +33,13 @@ class CurrentWeatherFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
         // TODO: Use the ViewModel
+
+        val apiService = WeatherApiService()
+
+        GlobalScope.launch(Dispatchers.Main) {
+            val currentWeatherResponse = apiService.getCurrentWeather("Klaten").await()
+            textView.text = currentWeatherResponse.toString()
+        }
     }
 
 }
