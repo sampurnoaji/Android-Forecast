@@ -1,11 +1,11 @@
 package id.petersam.forecast.data.db.unitlocalized
 
 interface UnitSpecificCurrentWeatherEntry {
-    val cloudcover: Int
-    val feelslike: Double
+    val cloudCover: Int
+    val feelsLike: Double
     val humidity: Double
     val observationTime: String
-    val precip: Double
+    val precipitation: Double
     val pressure: Double
     val temperature: Double
     val uvIndex: Int

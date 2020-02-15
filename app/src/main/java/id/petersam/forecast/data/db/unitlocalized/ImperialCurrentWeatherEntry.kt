@@ -4,15 +4,15 @@ import androidx.room.ColumnInfo
 
 data class ImperialCurrentWeatherEntry (
     @ColumnInfo(name = "cloudcover")
-    override val cloudcover: Int,
+    override val cloudCover: Int,
     @ColumnInfo(name = "feelslike")
-    override val feelslike: Double,
+    override val feelsLike: Double,
     @ColumnInfo(name = "humidity")
     override val humidity: Double,
     @ColumnInfo(name = "observationTime")
     override val observationTime: String,
     @ColumnInfo(name = "precip")
-    override val precip: Double,
+    override val precipitation: Double,
     @ColumnInfo(name = "pressure")
     override val pressure: Double,
     @ColumnInfo(name = "temperature")
